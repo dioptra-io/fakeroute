@@ -61,7 +61,7 @@ Place yourself in the directory where root CMakeLists.txt file is present.
 Then
 
 ```
-cmake
+cmake ../
 make
 ```
 The executable is named fakeRouteC__ 
@@ -69,7 +69,7 @@ The executable is named fakeRouteC__
 ###Usage
 
 ```
-./fakerouteC__ <topologyFile> <destination>
+./fakerouteC__ <topologyFile> <destination> <queue-number>
 ```
 ### Break down into end to end tests
 
@@ -77,11 +77,13 @@ To test the tool, you need to have paris-traceroute installed. Then you just hav
 
 In a terminal, tap:
 ```
-./fakerouteC__ resources/2-pathsLoadBalancer 127.1.1.6
+sudo ./fakerouteC__ resources/2-pathsLoadBalancer 127.1.1.6 1
 ```
+The first argument is the topology file. The second argument is the destination of the traceroute that you want to execute. The third argument is the queue that you have bound in the iptables command.
+
 In another terminal in paris-traceroute folder:
 ```
-./paris-traceroute -amda -B95,1,128 127.1.1.6
+sudo ./paris-traceroute -amda -B95,1,128 127.1.1.6
 ```
 See paris-traceroute for options meanings.
 
