@@ -56,11 +56,12 @@ The second command is a trick to reset the flows id of the router if you want to
 ### Installing
 
 The tool is built with cmake.
-Place yourself in the directory where root CMakeLists.txt file is present.
+Create a build folder in the fakeroute folder then launch cmake :
 
-Then
 
 ```
+mkdir fakeroute/build
+cd fakeroute/build
 cmake ../
 make
 ```
