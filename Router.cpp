@@ -56,7 +56,7 @@ void Router::readPacket(PDU &pdu, const SimpleRoute &route) {
 
 void Router::sendICMP(Tins::IP &ip) {
     ip.ttl(64);
-    packetSender.send(ip, "enp0s3");
+    packetSender.send(ip, network_interface);
 }
 
 RawPDU extract_icmp_payload(IP &pdu) {
@@ -178,7 +178,7 @@ void Router::setSeed(int seed) {
     Router::seed = seed;
 }
 
-Router::Router() : seed(rd()), gen(seed) {
+Router::Router() : seed(rd()), gen(seed), network_interface(NetworkInterface::default_interface()) {
 
 }
 

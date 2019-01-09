@@ -24,6 +24,7 @@ public:
     //Constructor and configuration
     Router();
 
+
     void addInterface(const Tins::IPv4Address &interface);
 
     const std::vector<SimpleRoute> &getRoutingTable() const;
@@ -56,7 +57,7 @@ private:
     void sendICMP(Tins::IP &icmp);
     std::vector<Tins::IPv4Address> interfaces;
     std::vector<SimpleRoute> routingTable;
-
+    Tins::NetworkInterface network_interface;
     Tins::PacketSender packetSender;
 
     //Key represents the hashed flow, value represents the associated route.

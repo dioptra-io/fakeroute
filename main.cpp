@@ -548,7 +548,7 @@ int main(int argc, char **argv) {
                 stopResponding = true;
             }
             ++current_probe_received;
-            printf("%d\n", ++current_probe_received);
+            //printf("%d\n", ++current_probe_received);
             nfq_handle_packet(h, buf, rv);
             continue;
         }
