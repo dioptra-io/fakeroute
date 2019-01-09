@@ -38,8 +38,19 @@ In order to use FakeRouteC++, you need to have a C++ modern compiler >= C++ 11. 
 
 You also need the following C and C++ libraries to be installed : 
 
-[libnetfilter_queue](https://)
-[libtins](https://)
+
+[libtins](http://libtins.github.io/download/)
+[libnetfilter_queue](https://git.netfilter.org/libnetfilter_queue/)
+
+/!\ libnetfilter_queue needs :
+
+[libmnl](https://git.netfilter.org/libmnl/)
+
+and
+
+[libnfnetlink](https://git.netfilter.org/libnfnetlink/)
+
+
 
 You will also need to change your iptables in order to redirect the traffic in libnetfilter_queue
 
@@ -56,7 +67,8 @@ The second command is a trick to reset the flows id of the router if you want to
 ### Installing
 
 The tool is built with cmake.
-Create a build folder in the fakeroute folder then launch cmake :
+
+Create a build folder in the fakeroute folder then launch cmake from there:
 
 
 ```
@@ -65,9 +77,10 @@ cd fakeroute/build
 cmake ../
 make
 ```
-The executable is named fakeRouteC__ 
+The executable is named fakeRouteC__  and can be found in the build directory.
 
 ###Usage
+
 
 ```
 ./fakerouteC__ <topologyFile> <destination> <queue-number>
@@ -78,8 +91,10 @@ To test the tool, you need to have paris-traceroute installed. Then you just hav
 
 In a terminal, tap:
 ```
-sudo ./fakerouteC__ resources/2-pathsLoadBalancer 127.1.1.6 1
+sudo ./fakerouteC__ ../resources/2-pathsLoadBalancer 127.1.1.6 1
 ```
+(We suppose that we are on ~/fakeroute/build )
+
 The first argument is the topology file. The second argument is the destination of the traceroute that you want to execute. The third argument is the queue that you have bound in the iptables command.
 
 In another terminal in paris-traceroute folder:
